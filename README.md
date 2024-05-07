@@ -4,27 +4,27 @@
 
 ### Demo
 
-Checkout the [Demo](https://yudielcurbelo.github.io/react-qr-scanner/).
+Checkout the [Demo](https://caprado.github.io/react-barcode-scanner/).
 
 ### Install
 
-    yarn add @yudiel/react-qr-scanner
+    yarn add @caprado/react-barcode-scanner
 
-    npm install @yudiel/react-qr-scanner
+    npm install @caprado/react-barcode-scanner
 
 ### Usage
 
 ```jsx
-import { Scanner } from '@yudiel/react-qr-scanner'
+import { Scanner } from "@caprado/react-barcode-scanner";
 
 const App = () => {
   return (
     <Scanner
       onResult={(text, result) => console.log(text, result)}
-      onError={error => console.log(error?.message)}
+      onError={(error) => console.log(error?.message)}
     />
-  )
-}
+  );
+};
 ```
 
 - You can also import `useContinuousScanner` hook and implement your own UI.
