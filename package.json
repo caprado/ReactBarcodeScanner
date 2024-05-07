@@ -1,6 +1,6 @@
 {
   "name": "@caprado/react-barcode-scanner",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A library to scan qr codes in react.",
   "author": "Christian Prado",
   "packageManager": "pnpm@9.0.6",
@@ -16,17 +16,21 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
-  "files": [
+    "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "publish": "pnpm publish",
-    "storybook": "NODE_OPTIONS=--openssl-legacy-provider && storybook dev -p 6006",
-    "build-storybook": "storybook build",
     "lint": "eslint . --ext .ts,.tsx",
-    "publish-beta": "pnpm publish --tag beta"
+    "build-storybook": "storybook build",
+    "storybook": "NODE_OPTIONS=--openssl-legacy-provider && storybook dev -p 6006"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^7.6.17",
@@ -55,7 +59,7 @@
     "storybook": "7.6.16",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.4.5",
-    "vite": "^5.2.11"
+    "vite": "^4.1.0-beta.0"
   },
   "peerDependencies": {
     "react": "^18.0.0",

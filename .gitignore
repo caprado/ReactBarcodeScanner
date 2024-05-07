@@ -1,2 +1,6 @@
 dist/
 node_modules/
+**/*.stories.tsx
+**/*.test.tsx
+**/__tests__/
+storybook-static/
