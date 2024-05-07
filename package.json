@@ -1,6 +1,6 @@
 {
   "name": "@caprado/react-barcode-scanner",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A library to scan qr codes in react.",
   "author": "Christian Prado",
   "packageManager": "pnpm@9.0.6",
