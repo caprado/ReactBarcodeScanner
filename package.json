@@ -1,6 +1,6 @@
 {
   "name": "@caprado/react-barcode-scanner",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "A library to scan qr codes in react.",
   "author": "Christian Prado",
   "packageManager": "pnpm@9.0.6",
@@ -19,12 +19,6 @@
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.cjs.js"
-    }
-  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -51,6 +45,10 @@
     "@typescript-eslint/parser": "^7.8.0",
     "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8.57.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.34.1",

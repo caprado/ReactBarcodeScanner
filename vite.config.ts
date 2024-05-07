@@ -1,5 +1,5 @@
 import { resolve } from 'path'
-import react from '@vitejs/plugin-react'
+import resolved from '@rollup/plugin-node-resolve'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 
@@ -14,8 +14,7 @@ export default defineConfig({
     rollupOptions: {
       external: [
         'react',
-        'react-dom',
-        '**/*.stories.tsx'
+        'react-dom'
       ],
       output: {
         globals: {
@@ -28,7 +27,7 @@ export default defineConfig({
     }
   },
   plugins: [
-    react(),
+    resolved(),
     dts({
       insertTypesEntry: true,
       exclude: [
