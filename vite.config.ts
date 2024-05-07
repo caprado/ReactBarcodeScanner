@@ -9,13 +9,7 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'ReactBarcodeScanner',
       formats: ['es', 'cjs'],
-      fileName: format => {
-        if (format === 'es') {
-          return 'dist/index.es.js'
-        }
-
-        return 'dist/index.cjs.js'
-      },
+      fileName: format => format === 'es' ? 'index.es.js' : 'index.cjs.js'
     },
     rollupOptions: {
       external: [
@@ -35,6 +29,13 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    dts({ insertTypesEntry: true })
+    dts({
+      insertTypesEntry: true,
+      exclude: [
+        '**/*.d.ts',
+        'vite.config.ts',
+        '**/*.stories.tsx'
+      ]
+    })
   ]
 })
