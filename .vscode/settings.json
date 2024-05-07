@@ -1,0 +1,17 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "never",
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "typescript.format.semicolons": "remove",
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "eslint.validate": [
+    "typescript",
+    "typescriptreact"
+  ],
+  "eslint.format.enable": true,
+  "typescript.tsdk": "node_modules\\typescript\\lib"
+}

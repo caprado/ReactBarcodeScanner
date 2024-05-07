@@ -1,0 +1,68 @@
+{
+  "name": "@caprado/react-barcode-scanner",
+  "version": "1.0",
+  "description": "A library to scan qr codes in react.",
+  "author": "Christian Prado",
+  "packageManager": "pnpm@9.0.6",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caprado/react-barcode-scanner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/caprado/react-barcode-scanner/issues"
+  },
+  "homepage": "https://github.com/caprado/react-barcode-scanner",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "publish": "pnpm publish",
+    "storybook": "NODE_OPTIONS=--openssl-legacy-provider && storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "lint": "eslint . --ext .ts,.tsx",
+    "publish-beta": "pnpm publish --tag beta"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11",
+    "@types/eslint": "^8.56.10",
+    "@types/node": "^20.12.10",
+    "tsconfig-paths": "^4.2.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-unicorn": "^52.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "@storybook/addon-actions": "^7.6.17",
+    "@storybook/addon-essentials": "^7.6.17",
+    "@storybook/addon-interactions": "^7.6.17",
+    "@storybook/addon-links": "^7.6.17",
+    "@storybook/addon-onboarding": "1.0.10",
+    "@storybook/addon-themes": "^7.6.17",
+    "@storybook/blocks": "^7.6.17",
+    "@storybook/builder-vite": "^7.6.17",
+    "@storybook/react": "^7.6.17",
+    "@storybook/react-vite": "^7.6.17",
+    "storybook": "7.6.16"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "dependencies": {
+    "@zxing/library": "^0.20.0"
+  }
+}
