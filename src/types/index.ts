@@ -1,4 +1,6 @@
 export { default as ScannerControl } from './ScannerControls'
+export { default as ScannerProps } from './ScannerProps'
+export { default as FinderProps } from './FinderProps'
 export { default as BrowserScannerOptions } from './ScannerOptions'
 export { default as ScannerComponents } from './ScannerComponents'
 export { default as ScannerStyles } from './ScannerStyles'

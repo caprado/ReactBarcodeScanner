@@ -47,5 +47,4 @@ type ScannerControls = {
   ) => MediaTrackCapabilities
 }
 
-
 export default ScannerControls
