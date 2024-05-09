@@ -1,10 +1,21 @@
 import { ReactElement, useEffect, useState } from 'react'
 import { BrowserScanner } from '../scanners/BrowserScanner'
 
+/**
+ * Props for the Devices component.
+ */
 type DevicesProps = {
+  /** Optional callback to be invoked when a new device is selected from the dropdown. */
   onChange?: (deviceId: string) => void
 }
 
+/**
+ * A component that renders a dropdown list of video input devices.
+ * It fetches available video devices and allows the user to select one.
+ * 
+ * @param {DevicesProps} props - The properties passed to the Devices component.
+ * @returns {ReactElement} - The rendered select element containing device options.
+ */
 const Devices = ({ onChange }: DevicesProps): ReactElement => {
   const [devices, setDevices] = useState<MediaDeviceInfo[]>([])
 

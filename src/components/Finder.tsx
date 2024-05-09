@@ -6,22 +6,45 @@ import OnOff from './OnOff'
 import Torch from './Torch'
 import Tracker from './Tracker'
 
-type FinderProps = {
+/**
+ * Properties for the Finder component.
+ */
+export type FinderProps = {
+  /** Indicates whether the scanner is active. */
   enabled: boolean
+  /** Indicates whether the scanner is currently loading. */
   loading: boolean
+  /** The video element used for scanning. */
   video: HTMLVideoElement | null
+  /** The border thickness for the scanning area visual. Defaults to 35 if not provided. */
   border?: number
+  /** The most recent scanning result. */
   result?: Result
+  /** Configuration options for scanner behavior. */
   options: BrowserScannerOptions
+  /** Whether to display the count of recognized items. */
   count?: boolean
+  /** Whether to provide UI controls for toggling the scanner. */
   onOff?: boolean
+  /** Whether to display a tracking visual for scanning. */
   tracker?: boolean
+  /** Function to toggle the device's torch. */
   switchTorch?: (value: boolean) => void
+  /** Function to initiate scanning. */
   startScanning: (deviceId?: string | undefined) => void
+  /** Function to stop scanning. */
   stopScanning: () => void
+  /** Optional function to retrieve the current media track settings. */
   getSettings?: () => MediaTrackSettings | undefined
 }
 
+/**
+ * A component that overlays a UI on top of a video feed for scanning purposes,
+ * including optional UI elements such as a counter, torch toggle, and on/off controls.
+ * 
+ * @param {FinderProps} props The properties passed to the Finder component.
+ * @returns {ReactElement} The rendered component with visual aids for scanning.
+ */
 const Finder = ({
   enabled,
   loading,
@@ -73,9 +96,22 @@ const Finder = ({
         }}
       >
         {loading && (
-          <text x='50' y='50' textAnchor='middle' fill='black' fontSize='8' fontFamily='Arial' fontWeight='bold'>
+          <text
+            x='50'
+            y='50'
+            textAnchor='middle'
+            fill='black'
+            fontSize='8'
+            fontFamily='Arial'
+            fontWeight='bold'
+          >
             Loading ...
-            <animate attributeName='opacity' values='0;1;0' dur='2s' repeatCount='indefinite' />
+            <animate
+              attributeName='opacity'
+              values='0;1;0'
+              dur='2s'
+              repeatCount='indefinite'
+            />
           </text>
         )}
         <path fill='none' d='M23,0 L0,0 L0,23' stroke={color} strokeWidth={stokeWidth} />

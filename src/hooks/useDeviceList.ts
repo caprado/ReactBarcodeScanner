@@ -1,6 +1,13 @@
 import { useEffect, useState } from 'react'
 import { BrowserScanner } from '../scanners/BrowserScanner'
 
+/**
+ * React hook for fetching a list of available video input devices.
+ * This hook asynchronously fetches the devices when the component mounts and updates
+ * the state with the list of devices.
+ *
+ * @returns {MediaDeviceInfo[]} An array of MediaDeviceInfo objects representing the video input devices.
+ */
 export const useDeviceList = (): MediaDeviceInfo[] => {
   const [devices, setDevices] = useState<MediaDeviceInfo[]>([])
 

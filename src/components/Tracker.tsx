@@ -1,13 +1,27 @@
 import { Result } from '@zxing/library'
 import { ReactElement, useEffect, useRef } from 'react'
 
+/**
+ * Properties for the Tracker component, which visualizes tracking points on a video feed.
+ */
 type TrackerProps = {
+  /** Optional result object that includes the data necessary for drawing tracking points. */
   result?: Result
+  /** The video element used as a reference for tracking visualization. */
   video: HTMLVideoElement | null
+  /** Delay in milliseconds before clearing the tracking visualization. */
   delay: number
+  /** Optional function to retrieve current media track settings. */
   getSettings?: () => MediaTrackSettings | undefined
 }
 
+/**
+ * A component that overlays tracking points on a video based on the results from a barcode scan.
+ * It dynamically adjusts to the size and position of the video element and the detected barcodes.
+ * 
+ * @param {TrackerProps} props The properties passed to the Tracker component.
+ * @returns {ReactElement} The canvas element used for drawing tracking points.
+ */
 const Tracker = ({
   result,
   video,

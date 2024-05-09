@@ -3,25 +3,48 @@ import { RefObject, useCallback, useEffect, useRef, useState } from 'react'
 import { base64Beep } from '../assets/base64Beep'
 import { BrowserMultiFormatScanner } from '../scanners/BrowserMultiFormatScanner'
 import { BrowserScanner } from '../scanners/BrowserScanner'
-import { BrowserScannerOptions, OnErrorFunction, OnResultFunction, ScannerControl } from '../types'
+import { BrowserScannerOptions, ScannerControl } from '../types'
 import deepEqual from '../utilities/deepEqual'
 
+/**
+ * Properties for initializing the useContinuousScanner hook.
+ */
 type UseContinuousScannerProps = {
+  /** Indicates if sound should be played upon successful scan. */
   audio: boolean
+  /** Scanner options such as constraints for the video feed. */
   options: BrowserScannerOptions
-  onResult: OnResultFunction
-  onError: OnErrorFunction
+  /** Callback function called with the result of a successful scan. */
+  onResult: (result: Result) => void
+  /** Callback function called when an error occurs during scanning. */
+  onError: (error: Error) => void
 }
 
+/**
+ * Return type of the useContinuousScanner hook.
+ */
 type UseContinuousScannerReturn = {
+  /** Indicates if the scanner is currently setting up. */
   loading: boolean
+  /** Ref object associated with the video element used for scanning. */
   ref: RefObject<HTMLVideoElement>
+  /** Function to start the scanning process. */
   startScanning: () => void
+  /** Function to stop the scanning process. */
   stopScanning: () => void
+  /** Optional function to toggle the device's torch. */
   switchTorch?: (value: boolean) => void
+  /** Optional function to retrieve current media track settings. */
   getSettings?: () => MediaTrackSettings | undefined
 }
 
+/**
+ * A React hook that provides functionalities for continuous scanning using a video feed.
+ * It manages the scanning state, error handling, and optional features like torch toggling.
+ *
+ * @param {UseContinuousScannerProps} props The properties to configure the scanner.
+ * @returns {UseContinuousScannerReturn} The set of functions and state control provided by the hook.
+ */
 export const useContinuousScanner = ({
   audio,
   options,

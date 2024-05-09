@@ -1,12 +1,23 @@
 import { CSSProperties, ReactElement } from 'react'
 
-type IFlashOnProps = {
+/**
+ * Properties for the CameraOff component.
+ */
+type CameraOffProps = {
+  /* The CSS class name for styling. */
   className?: string
+  /* Inline styles for the component. */
   style?: CSSProperties
+  /* The function to be called on click event. */
   onClick: () => void
 }
 
-const CameraOff = ({ className, style, onClick }: IFlashOnProps): ReactElement => (
+/**
+ * CameraOff component.
+ * @param {CameraOffProps} props - The props for the CameraOff component.
+ * @returns {ReactElement} A React SVG element representing a camera off icon.
+ */
+const CameraOff = ({ className, style, onClick }: CameraOffProps): ReactElement => (
   <svg
     onClick={onClick}
     className={className}

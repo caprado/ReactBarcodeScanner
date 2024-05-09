@@ -1,12 +1,23 @@
-import { CSSProperties } from 'react'
+import { CSSProperties, ReactElement } from 'react'
 
-type IFlashOnProps = {
-  className?: string
-  style?: CSSProperties
-  onClick: () => void
+/**
+ * Props for the TorchOn component.
+ */
+type TorchOnProps = {
+  /** The CSS class name for styling. */
+  className?: string // The CSS class name for styling.
+  /** Inline styles for the component. */
+  style?: CSSProperties // Inline styles for the component.
+  /** The function to be called on click event. */
+  onClick: () => void // The function to be called on click event.
 }
 
-const TorchOn = ({ className, style, onClick }: IFlashOnProps): JSX.Element => (
+/**
+ * TorchOn component.
+ * @param {TorchOnProps} props - The props for the TorchOn component.
+ * @returns {ReactElement} A React SVG element representing a torch on icon.
+ */
+const TorchOn = ({ className, style, onClick }: TorchOnProps): ReactElement => (
   <svg
     onClick={onClick}
     width='30px'
