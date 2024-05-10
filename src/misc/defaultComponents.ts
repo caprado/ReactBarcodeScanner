@@ -1,4 +1,4 @@
-import ScannerComponents from '../types/ScannerComponents'
+import { ScannerComponents } from '../types/ScannerComponents'
 
 export const defaultComponents: ScannerComponents = {
   audio: true,

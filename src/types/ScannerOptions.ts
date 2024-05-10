@@ -3,7 +3,7 @@ import { DecodeHintType } from '@zxing/library'
 /**
  * Configuration options for the browser scanner.
  */
-type ScannerOptions = {
+export type ScannerOptions = {
   /** The device ID of the camera to use, if specified. */
   deviceId?: string
   /** Decoder hints to optimize barcode decoding process. */
@@ -17,5 +17,3 @@ type ScannerOptions = {
   /** Timeout in milliseconds to attempt playing the video feed. */
   tryPlayVideoTimeout?: number
 }
-
-export default ScannerOptions

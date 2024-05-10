@@ -1,7 +1,7 @@
 /**
  * Optional components that can be toggled on or off in the scanner UI.
  */
-type ScannerComponents = {
+export type ScannerComponents = {
   /** Indicates if a tracking indicator should be displayed during scanning. */
   tracker?: boolean
   /** Indicates if audio feedback should be played on scan detection. */
@@ -13,5 +13,3 @@ type ScannerComponents = {
   /** Provides on/off switch controls directly in the UI. */
   onOff?: boolean
 }
-
-export default ScannerComponents

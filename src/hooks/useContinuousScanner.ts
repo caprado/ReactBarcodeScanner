@@ -3,7 +3,7 @@ import { RefObject, useCallback, useEffect, useRef, useState } from 'react'
 import { base64Beep } from '../assets/base64Beep'
 import { BrowserMultiFormatScanner } from '../scanners/BrowserMultiFormatScanner'
 import { BrowserScanner } from '../scanners/BrowserScanner'
-import { BrowserScannerOptions, ScannerControl } from '../types'
+import { ScannerControls, ScannerOptions } from '../types'
 import deepEqual from '../utilities/deepEqual'
 
 /**
@@ -13,7 +13,7 @@ type UseContinuousScannerProps = {
   /** Indicates if sound should be played upon successful scan. */
   audio: boolean
   /** Scanner options such as constraints for the video feed. */
-  options: BrowserScannerOptions
+  options: ScannerOptions
   /** Callback function called with the result of a successful scan. */
   onResult: (result: Result) => void
   /** Callback function called when an error occurs during scanning. */
@@ -54,11 +54,11 @@ export const useContinuousScanner = ({
   const isScanningRef = useRef(false)
   const videoRef = useRef<HTMLVideoElement>(null)
   const audioRef = useRef(new Audio(base64Beep))
-  const controlRef = useRef<ScannerControl | undefined>(undefined)
+  const controlRef = useRef<ScannerControls | undefined>(undefined)
   const onResultRef = useRef(onResult)
   const onErrorRef = useRef(onError)
 
-  const [scanOptions, setScanOptions] = useState<BrowserScannerOptions>(options)
+  const [scanOptions, setScanOptions] = useState<ScannerOptions>(options)
   const [hasTorch, setHasTorch] = useState(false)
   const [loading, setLoading] = useState(false)
 

@@ -1,6 +1,6 @@
 import { MultiFormatReader } from '@zxing/library'
 import { defaultOptions } from '../misc'
-import { BrowserScannerOptions } from '../types'
+import { ScannerOptions } from '../types'
 import { BrowserScanner } from './BrowserScanner'
 
 /**
@@ -22,7 +22,7 @@ export class BrowserMultiFormatScanner extends BrowserScanner {
    *
    * @param {BrowserScannerOptions} [options] - Optional scanner options that may include hints for the MultiFormatReader.
    */
-  public constructor(options?: BrowserScannerOptions) {
+  public constructor(options?: ScannerOptions) {
     const reader = new MultiFormatReader()
 
     reader.setHints(options?.hints)

@@ -1,19 +1,19 @@
 import { Result } from '@zxing/library'
-import FinderProps from './FinderProps'
-import ScannerComponents from './ScannerComponents'
-import ScannerStyles from './ScannerStyles'
-import { BrowserScannerOptions } from '.'
+import { FinderProps } from './FinderProps'
+import { ScannerComponents } from './ScannerComponents'
+import { ScannerStyles } from './ScannerStyles'
+import { ScannerOptions } from '.'
 
 /**
  * Props for the Scanner component.
  */
-type ScannerProps = {
+export type ScannerProps = {
   /** Whether the scanner is enabled and actively scanning. Defaults to true. */
   enabled?: boolean
   /** Custom styles applied to the scanner's container, video feed, and other UI elements. */
   styles?: ScannerStyles
   /** Options to configure the scanner, such as device constraints and decoding hints. */
-  options?: BrowserScannerOptions
+  options?: ScannerOptions
   /** Components that can be toggled on or off, such as audio feedback or a torch control. */
   components?: ScannerComponents
   /** 
@@ -32,5 +32,3 @@ type ScannerProps = {
    */
   customFinder?: React.ComponentType<FinderProps>
 }
-
-export default ScannerProps

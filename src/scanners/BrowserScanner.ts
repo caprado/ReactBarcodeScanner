@@ -1,5 +1,5 @@
 import { ArgumentException, BinaryBitmap, ChecksumException, DecodeContinuouslyCallback, Exception, FormatException, HybridBinarizer, NotFoundException, Reader, Result } from '@zxing/library'
-import { BrowserScannerOptions, ScannerControl } from '../types'
+import { ScannerControls, ScannerOptions } from '../types'
 import { HTMLVisualMediaElement } from '../types/HTMLVisualMediaElement'
 import { canEnumerateDevices, hasNavigator } from '../utilities/browser'
 import { HTMLCanvasElementLuminanceSource } from './HTMLCanvasElementLuminanceSource'
@@ -9,7 +9,7 @@ export class BrowserScanner {
 
   public constructor(
     protected readonly reader: Reader,
-    public readonly options: BrowserScannerOptions
+    public readonly options: ScannerOptions
   ) {
     if (!reader) {
       throw new ArgumentException('A valid Reader must be provided.')
@@ -288,7 +288,7 @@ export class BrowserScanner {
     constraints: MediaStreamConstraints,
     previewElem: string | HTMLVideoElement | undefined,
     callbackFn: DecodeContinuouslyCallback
-  ): Promise<ScannerControl> {
+  ): Promise<ScannerControls> {
     BrowserScanner.checkCallbackFnOrThrow(callbackFn)
 
     const stream = await this.getUserMedia(constraints)
@@ -306,7 +306,7 @@ export class BrowserScanner {
     stream: MediaStream,
     preview: string | HTMLVideoElement | undefined,
     callbackFn: DecodeContinuouslyCallback
-  ): Promise<ScannerControl> {
+  ): Promise<ScannerControls> {
     BrowserScanner.checkCallbackFnOrThrow(callbackFn)
 
     const video = await BrowserScanner.attachStreamToVideo(
@@ -324,7 +324,7 @@ export class BrowserScanner {
 
     const videoTracks = stream.getVideoTracks()
 
-    const controls: ScannerControl = {
+    const controls: ScannerControls = {
       ...originalControls,
 
       stop() {
@@ -403,7 +403,7 @@ export class BrowserScanner {
     deviceId: string | undefined,
     previewElem: string | HTMLVideoElement | undefined,
     callbackFn: DecodeContinuouslyCallback
-  ): Promise<ScannerControl> {
+  ): Promise<ScannerControls> {
     BrowserScanner.checkCallbackFnOrThrow(callbackFn)
 
     const videoConstraints: MediaTrackConstraints = deviceId ? {
@@ -420,7 +420,7 @@ export class BrowserScanner {
     element: HTMLVisualMediaElement,
     callbackFn: DecodeContinuouslyCallback,
     finalizeCallback?: (error?: Error) => void
-  ): ScannerControl {
+  ): ScannerControls {
     BrowserScanner.checkCallbackFnOrThrow(callbackFn)
 
     const captureCanvas = BrowserScanner.createCaptureCanvas(element)

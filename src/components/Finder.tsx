@@ -1,5 +1,5 @@
 import { Fragment, ReactElement } from 'react'
-import FinderProps from '../types/FinderProps'
+import { FinderProps } from '../types/FinderProps'
 import Counter from './Counter'
 import OnOff from './OnOff'
 import Torch from './Torch'

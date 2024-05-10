@@ -2,7 +2,7 @@ import { Result } from '@zxing/library'
 import { ReactElement, useEffect, useState } from 'react'
 import { useContinuousScanner } from '../hooks/useContinuousScanner'
 import { defaultComponents, defaultOptions, defaultStyles } from '../misc'
-import ScannerProps from '../types/ScannerProps'
+import { ScannerProps } from '../types/ScannerProps'
 import Finder from './Finder'
 
 /**

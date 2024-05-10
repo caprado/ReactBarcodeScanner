@@ -3,14 +3,14 @@
  * These controls allow for stopping the scan, toggling torch mode,
  * and managing stream video constraints, settings, and capabilities.
  */
-type ScannerControls = {
+export type ScannerControls = {
   /** Stops the scanning process. */
   stop: () => void
   /**
-   * Optionally toggles the torch (flashlight) of the device's camera.
-   * @param {boolean} onOff - True to turn the torch on, false to turn it off.
-   * @returns {Promise<void>} A promise that resolves when the torch state has been changed.
-   */
+     * Optionally toggles the torch (flashlight) of the device's camera.
+     * @param {boolean} onOff - True to turn the torch on, false to turn it off.
+     * @returns {Promise<void>} A promise that resolves when the torch state has been changed.
+     */
   switchTorch?: (onOff: boolean) => Promise<void>
   /**
    * Optionally sets video constraints for the scanning stream.
@@ -22,10 +22,10 @@ type ScannerControls = {
     trackFilter?: (track: MediaStreamTrack) => MediaStreamTrack[]
   ) => void
   /**
-   * Optionally retrieves the current video constraints of the scanning stream.
-   * @param {(track: MediaStreamTrack) => MediaStreamTrack[]} trackFilter - A function to filter specific tracks for retrieving constraints.
-   * @returns {MediaTrackConstraints} The current video constraints applied to the stream.
-   */
+       * Optionally retrieves the current video constraints of the scanning stream.
+       * @param {(track: MediaStreamTrack) => MediaStreamTrack[]} trackFilter - A function to filter specific tracks for retrieving constraints.
+       * @returns {MediaTrackConstraints} The current video constraints applied to the stream.
+       */
   getStreamVideoConstraints?: (
     trackFilter: (track: MediaStreamTrack) => MediaStreamTrack[]
   ) => MediaTrackConstraints
@@ -46,5 +46,3 @@ type ScannerControls = {
     trackFilter: (track: MediaStreamTrack) => MediaStreamTrack[]
   ) => MediaTrackCapabilities
 }
-
-export default ScannerControls

@@ -1,4 +1,4 @@
-import ScannerStyles from '../types/ScannerStyles'
+import { ScannerStyles } from '../types'
 
 export const defaultStyles: ScannerStyles = {
   container: {

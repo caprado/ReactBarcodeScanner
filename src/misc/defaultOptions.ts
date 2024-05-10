@@ -1,7 +1,7 @@
-import { BrowserScannerOptions } from '../types'
+import { ScannerOptions } from '../types'
 import { defaultConstraints } from './defaultConstraints'
 
-export const defaultOptions: BrowserScannerOptions = {
+export const defaultOptions: ScannerOptions = {
   deviceId: undefined,
   hints: undefined,
   constraints: defaultConstraints,

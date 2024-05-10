@@ -1,10 +1,10 @@
 import { Result } from '@zxing/library'
-import { BrowserScannerOptions } from '.'
+import { ScannerOptions } from '.'
 
 /**
  * Properties for the Finder component.
  */
-type FinderProps = {
+export type FinderProps = {
   /** Indicates whether the scanner is active. */
   enabled: boolean
   /** Indicates whether the scanner is currently loading. */
@@ -16,7 +16,7 @@ type FinderProps = {
   /** The most recent scanning result. */
   result?: Result
   /** Configuration options for scanner behavior. */
-  options: BrowserScannerOptions
+  options: ScannerOptions
   /** Whether to display the count of recognized items. */
   count?: boolean
   /** Whether to provide UI controls for toggling the scanner. */
@@ -32,5 +32,3 @@ type FinderProps = {
   /** Optional function to retrieve the current media track settings. */
   getSettings?: () => MediaTrackSettings | undefined
 }
-
-export default FinderProps
